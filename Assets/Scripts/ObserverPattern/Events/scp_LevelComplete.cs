@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scp_LevelComplete : MonoBehaviour
 {
@@ -11,8 +10,9 @@ public class scp_LevelComplete : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            //Fires the raise method from the game event script
-            gameEvent.Raise();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //Defaults the cursor to visible
+            Cursor.visible = true;
         }
     }
 }
